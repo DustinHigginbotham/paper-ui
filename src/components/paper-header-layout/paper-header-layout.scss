@@ -11,6 +11,16 @@
     height: 100%;
 }
 
+:host-context(paper-drawer-layout) ::slotted(paper-app-bar) {
+    left: 256px;
+    transition: 0.2s all cubic-bezier(0.4, 0.0, 0.6, 1);
+}
+
+:host-context([force-narrow]) ::slotted(paper-app-bar) {
+    left: 0;
+}
+
+
 :host ::slotted(paper-drawer-layout) {
     height: 100%;
 }
@@ -19,8 +29,14 @@
     // padding-bottom: 56px;
 }
 
+
 .main {
     height: 100%;
+    padding-top: 56px;
+}
+
+:host ::slotted(*) {
+    padding-top: 0;
 }
 
 @media (min-width: 600px) {

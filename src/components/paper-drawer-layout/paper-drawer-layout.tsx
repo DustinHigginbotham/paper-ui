@@ -22,7 +22,6 @@ export class PaperDrawerLayout {
     }
 
     handleMediaQuery(mq) {
-        console.log('hey')
         if (mq.matches) {
             this.el.removeAttribute('narrow', '')
         } else {

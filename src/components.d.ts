@@ -62,6 +62,36 @@ declare global {
   }
 }
 
+import { PaperDrawer as PaperDrawer } from './components/paper-drawer/paper-drawer';
+
+interface HTMLPaperDrawerElement extends PaperDrawer, HTMLElement {
+}
+declare var HTMLPaperDrawerElement: {
+  prototype: HTMLPaperDrawerElement;
+  new (): HTMLPaperDrawerElement;
+};
+declare global {
+  interface HTMLElementTagNameMap {
+      "paper-drawer": HTMLPaperDrawerElement;
+  }
+  interface ElementTagNameMap {
+      "paper-drawer": HTMLPaperDrawerElement;
+  }
+  namespace JSX {
+      interface IntrinsicElements {
+          "paper-drawer": JSXElements.PaperDrawerAttributes;
+      }
+  }
+  namespace JSXElements {
+      export interface PaperDrawerAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
+        
+          opened?: boolean
+      }
+  }
+}
+
 import { PaperHeaderLayout as PaperHeaderLayout } from './components/paper-header-layout/paper-header-layout';
 
 interface HTMLPaperHeaderLayoutElement extends PaperHeaderLayout, HTMLElement {

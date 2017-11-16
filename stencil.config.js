@@ -5,6 +5,7 @@ exports.config = {
   bundles: [
     { components: [
       'paper-app-bar',
+      'paper-drawer',
       'paper-drawer-layout',
       'paper-header-layout',
     ] }

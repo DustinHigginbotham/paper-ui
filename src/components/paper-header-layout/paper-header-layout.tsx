@@ -14,7 +14,9 @@ export class PaperHeaderLayout {
                     <slot name="header" />
                 </div>
 
-                <slot />
+                <div class="main">
+                    <slot />
+                </div>
             </div>
         );
     }

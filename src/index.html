@@ -21,6 +21,14 @@
       padding: 0;
       margin: 0;
       font-family: 'Roboto', sans-serif;
+      background-color: #eee;
+    }
+
+    .card {
+      background-color: white;
+      padding: 16px;
+      border-radius: 2px;
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
     }
 
     body {
@@ -36,9 +44,18 @@
 
     a { text-decoration: none; color: #222; }
 
-    nav {
-      background-color: #eee;
-      width: 256px;
+    paper-drawer {
+      background-color: #fff;
+    }
+
+    paper-app-bar {
+      background-color: #1E88E5;
+      color: white;
+    }
+
+    paper-app-bar a {
+      color: white;
+      font-size: 20px;
     }
 
     nav a {
@@ -54,24 +71,59 @@
 <body>
   <div class="main-content">
     <paper-drawer-layout>
-      <nav slot="drawer">
+      <paper-drawer slot="drawer" opened>
         <ul>
           <li><a href="#">Home</a></li>
           <li><a href="#">About Us</a></li>
           <li><a href="#">Contact Me</a></li>
         </ul>
-      </nav>
+      </paper-drawer>
       <paper-header-layout>
         <paper-app-bar slot="header">
           <a href="/">My App</a>
         </paper-app-bar>
         <main>
-          <h1>Welcome to my test</h1>
-          <p>This is a super, stupidly simple version of the starter kit.</p>
-          <p>Ideally, this would exist in a <code>&lt;my-app /&gt;</code> tag, but here we are.</p>
+
+          <div class="card">
+            <h1>Welcome to my test</h1>
+            <p>This is a super, stupidly simple version of the starter kit.</p>
+            <p>Ideally, this would exist in a <code>&lt;my-app /&gt;</code> tag, but here we are.</p>
+          </div>
         </main>
       </paper-header-layout>
     </paper-drawer-layout>
+
+    <!-- <paper-header-layout>
+        <paper-app-bar slot="header">
+          <a href="/">My App</a>
+        </paper-app-bar>
+        <paper-drawer-layout>
+            <paper-drawer slot="drawer" opened>
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Me</a></li>
+              </ul>
+            </paper-drawer>
+
+            <main>
+
+              <div class="card">
+                <h1>Welcome to my test</h1>
+                <p>This is a super, stupidly simple version of the starter kit.</p>
+                <p>Ideally, this would exist in a <code>&lt;my-app /&gt;</code> tag, but here we are.</p>
+              </div>
+            </main>
+        </paper-drawer-layout>
+      </paper-header-layout> -->
+
+
   </div>
+
+  <script>
+    setTimeout(() =>
+      document.querySelector('paper-drawer-layout').setAttribute('force-narrow', ''),
+    2000)
+  </script>
 </body>
 </html>

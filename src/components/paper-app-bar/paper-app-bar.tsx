@@ -9,9 +9,7 @@ export class PaperAppBar {
 
     render() {
         return (
-            <header>
-                <slot />
-            </header>
+            <slot />
         );
     }
 }

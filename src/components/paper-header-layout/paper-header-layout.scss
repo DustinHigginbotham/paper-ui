@@ -1,20 +1,30 @@
 :host {
+    all: inherit;
     display: block;
     height: 100%;
-    width: 100%;
-    position: relative;
 }
 
-div {
+:host > div {
+    // display: flex;
+    // align-items: stretch;
+    // justify-content: flex-start;
+    height: 100%;
+}
+
+:host ::slotted(paper-drawer-layout) {
     height: 100%;
 }
 
 .header-wrapper {
-    padding-bottom: 56px;
+    // padding-bottom: 56px;
+}
+
+.main {
+    height: 100%;
 }
 
 @media (min-width: 600px) {
     .header-wrapper {
-        padding-bottom: 64px;
+        // padding-bottom: 64px;
     }
 }

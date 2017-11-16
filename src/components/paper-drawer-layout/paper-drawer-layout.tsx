@@ -10,7 +10,9 @@ export class PaperDrawerLayout {
     render() {
         return (
             <div>
-                <slot name="drawer" />
+                <aside>
+                    <slot name="drawer" />
+                </aside>
                 <div class="main">
                     <slot />
                 </div>

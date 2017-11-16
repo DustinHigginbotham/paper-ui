@@ -10,9 +10,9 @@ export class PaperHeaderLayout {
     render() {
         return (
             <div>
-                <div class="header-wrapper">
+                {/* <div class="header-wrapper"> */}
                     <slot name="header" />
-                </div>
+                {/* </div> */}
 
                 <div class="main">
                     <slot />

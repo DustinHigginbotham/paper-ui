@@ -1,40 +1,27 @@
 :host {
     all: inherit;
     display: block;
-    // contain: content;
-    // height: 100%;
 }
 
-aside {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-}
-
-aside ::slotted(paper-drawer) {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.main {
-    margin-left: 256px;
-}
+// aside {
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     bottom: 0;
+// }
 
 :host ::slotted(*) {
     margin-left: 0;
 }
-
-:host([force-narrow]) ::slotted(paper-drawer) {
-    transform: translateX(-100%);
+.main {
+    margin-left: 256px;
+}
+:host([narrow]), :host([forceNarrow]) {
+    & .main {
+        margin-left: 0;
+    }
 }
 
-:host([force-narrow]) .main {
-    margin-left: 0;
-}
 
 :host > div {
     // display: flex;
@@ -58,18 +45,27 @@ aside ::slotted(paper-drawer) {
     flex-grow: 1;
 }
 
-@media (min-width: 600px) {
 
-    // div ::slotted([slot=drawer]) {
-    //     transform: translateX(0);
-    // }
 
-    .main {
-        // padding-left: 256px;
-        // width: 100%;
-    }
+// @media (min-width: 600px) {
 
-}
+//     // div ::slotted([slot=drawer]) {
+//     //     transform: translateX(0);
+//     // }
+
+//     :host ::slotted(*) {
+//         margin-left: 0;
+//     }
+//     .main {
+//         margin-left: 256px;
+//         // width: 100%;
+//     }
+
+//     :host ::slotted(paper-drawer) {
+//         transform: translateX(0);
+//     }
+
+// }
 
 
 // div ::slotted([slot=drawer]) {

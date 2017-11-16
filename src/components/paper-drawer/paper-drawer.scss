@@ -1,10 +1,47 @@
 :host {
+    all: inherit;
     display: block;
+}
+
+:host > div {
+    all: inherit;
+}
+
+aside {
+    background-color: inherit;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
     width: 256px;
     transition: 0.2s all cubic-bezier(0.4, 0.0, 0.6, 1);
+
+    transform: translateX(0);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    visibility: hidden;
+    transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+:host-context([narrow]) aside, :host-context([forceNarrow]) aside {
     transform: translateX(-100%);
 }
 
-:host([opened]) {
+.opened aside {
+    z-index: 101;
     transform: translateX(0);
+}
+
+.opened .overlay {
+    visibility: visible;
+    opacity: 1;
 }

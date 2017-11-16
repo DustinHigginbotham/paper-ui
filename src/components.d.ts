@@ -87,6 +87,9 @@ declare global {
           mode?: string,
           color?: string,
         
+          toggle?: any,
+          open?: any,
+          close?: any,
           opened?: boolean
       }
   }

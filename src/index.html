@@ -33,6 +33,10 @@
       margin-bottom: 16px;
     }
 
+    .card:last-of-type {
+      margin-bottom: 0;
+    }
+
     body {
       display: flex;
       min-height: 100vh;
@@ -49,6 +53,7 @@
     paper-drawer {
       background-color: #fff;
     }
+
 
     paper-app-bar {
       background-color: #1E88E5;
@@ -97,7 +102,7 @@
 <body>
   <div class="main-content">
     <paper-drawer-layout>
-      <paper-drawer slot="drawer" opened>
+      <paper-drawer slot="drawer">
         <ul>
           <li><a href="#">Home</a></li>
           <li><a href="#">About Us</a></li>
@@ -108,13 +113,15 @@
         <paper-app-bar slot="header">
 
           <div main-title>
-            <button>
+            <button class="menu-toggle">
               <svg class="icon">
                 <use xlink:href="/assets/icons.svg#menu" />
               </svg>
             </button>
             <a href="/" class="title">My App</a>
           </div>
+
+          <div>Login</div>
         </paper-app-bar>
         <main>
 
@@ -211,11 +218,18 @@
     (function() {
 
       const layout = document.querySelector('paper-drawer-layout');
+      const drawer = document.querySelector('paper-drawer');
       document.querySelector('[main-title] button').addEventListener('click', () => {
-        if (layout.hasAttribute('force-narrow')) {
-          layout.removeAttribute('force-narrow')
+
+        const isForcedNarrow = layout.hasAttribute('forceNarrow')
+        if (isForcedNarrow || !layout.hasAttribute('narrow')) {
+          if (isForcedNarrow) {
+            layout.removeAttribute('forceNarrow')
+          } else {
+            layout.setAttribute('forceNarrow', '')
+          }
         } else {
-          layout.setAttribute('force-narrow', '')
+          drawer.toggle()
         }
       })
     })()

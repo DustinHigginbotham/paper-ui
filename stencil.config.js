@@ -8,6 +8,7 @@ exports.config = {
       'paper-drawer',
       'paper-drawer-layout',
       'paper-header-layout',
+      'paper-input-text'
     ] }
   ]
 };

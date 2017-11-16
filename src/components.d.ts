@@ -124,3 +124,39 @@ declare global {
   }
 }
 
+import { PaperInputText as PaperInputText } from './components/paper-input-text/paper-input-text';
+
+interface HTMLPaperInputTextElement extends PaperInputText, HTMLElement {
+}
+declare var HTMLPaperInputTextElement: {
+  prototype: HTMLPaperInputTextElement;
+  new (): HTMLPaperInputTextElement;
+};
+declare global {
+  interface HTMLElementTagNameMap {
+      "paper-input-text": HTMLPaperInputTextElement;
+  }
+  interface ElementTagNameMap {
+      "paper-input-text": HTMLPaperInputTextElement;
+  }
+  namespace JSX {
+      interface IntrinsicElements {
+          "paper-input-text": JSXElements.PaperInputTextAttributes;
+      }
+  }
+  namespace JSXElements {
+      export interface PaperInputTextAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
+        
+          getValue?: any,
+          type?: string,
+          value?: string,
+          hint?: string,
+          label?: string,
+          id?: string,
+          alwaysFloatLabel?: boolean
+      }
+  }
+}
+

@@ -95,6 +95,35 @@ declare global {
   }
 }
 
+import { PaperFab as PaperFab } from './components/paper-fab/paper-fab';
+
+interface HTMLPaperFabElement extends PaperFab, HTMLElement {
+}
+declare var HTMLPaperFabElement: {
+  prototype: HTMLPaperFabElement;
+  new (): HTMLPaperFabElement;
+};
+declare global {
+  interface HTMLElementTagNameMap {
+      "paper-fab": HTMLPaperFabElement;
+  }
+  interface ElementTagNameMap {
+      "paper-fab": HTMLPaperFabElement;
+  }
+  namespace JSX {
+      interface IntrinsicElements {
+          "paper-fab": JSXElements.PaperFabAttributes;
+      }
+  }
+  namespace JSXElements {
+      export interface PaperFabAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
+        
+      }
+  }
+}
+
 import { PaperHeaderLayout as PaperHeaderLayout } from './components/paper-header-layout/paper-header-layout';
 
 interface HTMLPaperHeaderLayoutElement extends PaperHeaderLayout, HTMLElement {

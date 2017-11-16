@@ -1,6 +1,7 @@
 exports.config = {
   namespace: 'paper',
   generateDistribution: true,
+  generateWWW: true,
   bundles: [
     { components: [
       'paper-app-bar',

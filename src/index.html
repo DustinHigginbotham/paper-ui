@@ -2,14 +2,76 @@
 <html dir="ltr" lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>Stencil Component Starter</title>
-  <script src="/build/paper-app-bar.js"></script>
+  <title>Paper Starter App</title>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <meta name="theme-color" content="#16161d">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+  <script src="/build/paper.js"></script>
+
+  <link rel="apple-touch-icon" href="/assets/icon/icon.png">
+  <link rel="icon" type="image/x-icon" href="/assets/icon/favicon.ico">
+  <link rel="manifest" href="/manifest.json">
+
+  <style>
+    html, body {
+      padding: 0;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+      color: #222;
+    }
+
+    .main-content {
+      flex: 1;
+    }
+
+    a { text-decoration: none; color: #222; }
+
+    nav {
+      background-color: #eee;
+      width: 256px;
+    }
+
+    nav a {
+      padding: 8px 0;
+    }
+
+    main {
+      padding: 16px;
+    }
+
+  </style>
 </head>
 <body>
-
-
-
+  <div class="main-content">
+    <paper-drawer-layout>
+      <nav slot="drawer">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Me</a></li>
+        </ul>
+      </nav>
+      <paper-header-layout>
+        <paper-app-bar slot="header">
+          <a href="/">My App</a>
+        </paper-app-bar>
+        <main>
+          <h1>Welcome to my test</h1>
+          <p>This is a super, stupidly simple version of the starter kit.</p>
+          <p>Ideally, this would exist in a <code>&lt;my-app /&gt;</code> tag, but here we are.</p>
+        </main>
+      </paper-header-layout>
+    </paper-drawer-layout>
+  </div>
 </body>
 </html>

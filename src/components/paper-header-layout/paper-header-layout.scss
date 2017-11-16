@@ -1,0 +1,20 @@
+:host {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+div {
+    height: 100%;
+}
+
+.header-wrapper {
+    padding-bottom: 56px;
+}
+
+@media (min-width: 600px) {
+    .header-wrapper {
+        padding-bottom: 64px;
+    }
+}

@@ -1,0 +1,13 @@
+:host {
+    display: block;
+}
+
+:host > div {
+    padding: 8px 16px;
+}
+
+:host ::slotted([secondary]) {
+    color: #979797; // mute the text a little bit
+    display: block; // push it to the next line (if using something like a span)
+    font-size: 14px;
+}

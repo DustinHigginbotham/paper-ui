@@ -27,7 +27,6 @@
 
     h1, h2, h3, h4, h5, h6 {
       font-weight: 300;
-
     }
 
     .card {
@@ -112,40 +111,67 @@
       padding: 8px 0;
     }
 
+    paper-list-item a {
+      display: block;
+    }
+
     main {
       padding: 16px;
+    }
+
+    paper-drawer-layout:not([narrow]) paper-drawer > div {
+      padding-top: 60px;
     }
 
   </style>
 </head>
 <body>
   <div class="main-content">
-    <paper-drawer-layout>
-      <paper-drawer slot="drawer">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact Me</a></li>
-        </ul>
-      </paper-drawer>
-      <paper-header-layout>
-        <paper-app-bar slot="header">
+    <paper-header-layout>
+      <paper-app-bar slot="header">
 
-          <div main-title>
-            <button class="menu-toggle">
-              <svg class="icon">
-                <use xlink:href="/assets/icons.svg#menu" />
-              </svg>
-            </button>
-            <a href="#" class="title">My App</a>
-          </div>
+        <div main-title>
+          <button class="menu-toggle">
+            <svg class="icon">
+              <use xlink:href="/assets/icons.svg#menu" />
+            </svg>
+          </button>
+          <a href="#" class="title">My App</a>
+        </div>
 
+        <div>
+            <svg class="icon">
+              <use xlink:href="/assets/icons.svg#github" />
+            </svg>
+        </div>
+      </paper-app-bar>
+      <paper-drawer-layout>
+        <paper-drawer slot="drawer">
           <div>
-              <svg class="icon">
-                <use xlink:href="/assets/icons.svg#rowing" />
-              </svg>
+            <paper-list>
+
+              <a href="#">
+                <paper-list-item>
+                  Home
+                </paper-list-item>
+              </a>
+
+              <a href="#">
+                <paper-list-item>
+                  About Us
+                </paper-list-item>
+              </a>
+
+              <a href="#">
+                <paper-list-item>
+                  Contact Me
+                </paper-list-item>
+              </a>
+
+            </paper-list>
           </div>
-        </paper-app-bar>
+        </paper-drawer>
+
         <main>
 
           <div class="card">
@@ -184,8 +210,8 @@
             </svg>
           </paper-fab>
         </main>
-      </paper-header-layout>
-    </paper-drawer-layout>
+      </paper-drawer-layout>
+    </paper-header-layout>
 
     <!-- <paper-header-layout>
         <paper-app-bar slot="header">

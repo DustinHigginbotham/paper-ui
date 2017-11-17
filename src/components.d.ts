@@ -189,3 +189,61 @@ declare global {
   }
 }
 
+import { ListItem as PaperListItem } from './components/paper-list/paper-list-item';
+
+interface HTMLPaperListItemElement extends PaperListItem, HTMLElement {
+}
+declare var HTMLPaperListItemElement: {
+  prototype: HTMLPaperListItemElement;
+  new (): HTMLPaperListItemElement;
+};
+declare global {
+  interface HTMLElementTagNameMap {
+      "paper-list-item": HTMLPaperListItemElement;
+  }
+  interface ElementTagNameMap {
+      "paper-list-item": HTMLPaperListItemElement;
+  }
+  namespace JSX {
+      interface IntrinsicElements {
+          "paper-list-item": JSXElements.PaperListItemAttributes;
+      }
+  }
+  namespace JSXElements {
+      export interface PaperListItemAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
+        
+      }
+  }
+}
+
+import { List as PaperList } from './components/paper-list/paper-list';
+
+interface HTMLPaperListElement extends PaperList, HTMLElement {
+}
+declare var HTMLPaperListElement: {
+  prototype: HTMLPaperListElement;
+  new (): HTMLPaperListElement;
+};
+declare global {
+  interface HTMLElementTagNameMap {
+      "paper-list": HTMLPaperListElement;
+  }
+  interface ElementTagNameMap {
+      "paper-list": HTMLPaperListElement;
+  }
+  namespace JSX {
+      interface IntrinsicElements {
+          "paper-list": JSXElements.PaperListAttributes;
+      }
+  }
+  namespace JSXElements {
+      export interface PaperListAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
+        
+      }
+  }
+}
+

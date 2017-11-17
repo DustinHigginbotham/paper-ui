@@ -26,15 +26,15 @@ This list isn't in any particular order, but it may be tempting to just follow t
 - [x] App Layout
 - [x] Sidebar
 - [x] Header
-- [ ] Pretty material ripples
 - [ ] Inputs
     - [x] Text Input
-    - [ ] Texarea
+    - [ ] Textarea
     - [ ] Toggles
 - [ ] Buttons
     - [ ] Buttons with varying elevation
+    - [ ] Icon buttons
     - [x] FAB
-- [ ] Lists
+- [x] Lists
 - [ ] Snackbar / Toast
 - [ ] Cards
 - [ ] Chips
@@ -42,8 +42,10 @@ This list isn't in any particular order, but it may be tempting to just follow t
 - [ ] Menus
 - [ ] Avatar
 - [ ] Progress indicators
+- [ ] Better elevation/material support.
 
 ### Management
 - [ ] Upload to NPM
 - [ ] Tests
 - [ ] Create a demo page with Firebase
+- [ ] Crazy thorough documentation of each component (ongoing process)

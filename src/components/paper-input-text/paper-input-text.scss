@@ -1,14 +1,11 @@
+// TODO clean up some of these longer definitions using some sass
+
 :host {
     display: block;
 
     position: relative;
     border-bottom: 1px solid #222;
-    // padding-top: 16px;
     padding-top: 32px;
-
-    // &.has-label {
-        // padding-top: 32px;
-    // }
 }
 
 input {

@@ -4,7 +4,7 @@
  * and imports for stencil collections that might be configured in your stencil.config.js file
  */
 
-import { PaperAppBar as PaperAppBar } from './components/paper-app-bar/paper-app-bar';
+import { AppBar as PaperAppBar } from './components/paper-app-bar/paper-app-bar';
 
 interface HTMLPaperAppBarElement extends PaperAppBar, HTMLElement {
 }
@@ -33,7 +33,7 @@ declare global {
   }
 }
 
-import { PaperDrawerLayout as PaperDrawerLayout } from './components/paper-drawer-layout/paper-drawer-layout';
+import { DrawerLayout as PaperDrawerLayout } from './components/paper-drawer-layout/paper-drawer-layout';
 
 interface HTMLPaperDrawerLayoutElement extends PaperDrawerLayout, HTMLElement {
 }
@@ -62,7 +62,7 @@ declare global {
   }
 }
 
-import { PaperDrawer as PaperDrawer } from './components/paper-drawer/paper-drawer';
+import { Drawer as PaperDrawer } from './components/paper-drawer/paper-drawer';
 
 interface HTMLPaperDrawerElement extends PaperDrawer, HTMLElement {
 }
@@ -95,7 +95,7 @@ declare global {
   }
 }
 
-import { PaperFab as PaperFab } from './components/paper-fab/paper-fab';
+import { FAB as PaperFab } from './components/paper-fab/paper-fab';
 
 interface HTMLPaperFabElement extends PaperFab, HTMLElement {
 }
@@ -124,7 +124,7 @@ declare global {
   }
 }
 
-import { PaperHeaderLayout as PaperHeaderLayout } from './components/paper-header-layout/paper-header-layout';
+import { HeaderLayout as PaperHeaderLayout } from './components/paper-header-layout/paper-header-layout';
 
 interface HTMLPaperHeaderLayoutElement extends PaperHeaderLayout, HTMLElement {
 }
@@ -153,7 +153,7 @@ declare global {
   }
 }
 
-import { PaperInputText as PaperInputText } from './components/paper-input-text/paper-input-text';
+import { InputText as PaperInputText } from './components/paper-input-text/paper-input-text';
 
 interface HTMLPaperInputTextElement extends PaperInputText, HTMLElement {
 }
@@ -180,11 +180,11 @@ declare global {
         
           getValue?: any,
           type?: string,
-          value?: string,
           hint?: string,
           label?: string,
           id?: string,
-          alwaysFloatLabel?: boolean
+          alwaysFloatLabel?: boolean,
+          value?: string
       }
   }
 }

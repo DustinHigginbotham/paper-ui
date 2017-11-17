@@ -1,8 +1,6 @@
 :host {
     display: block;
-}
 
-:host > div {
     position: relative;
     border-bottom: 1px solid #222;
     // padding-top: 16px;
@@ -52,19 +50,19 @@ input:-moz-placeholder { /* Firefox 18- */
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
-.has-label input::-webkit-input-placeholder,:host([alwaysFloatLabel]) input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+:host(.has-label) input::-webkit-input-placeholder,:host([alwaysFloatLabel]) input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: transparent;
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
 }
-.has-label input::-moz-placeholder,:host([alwaysFloatLabel]) { /* Firefox 19+ */
+:host(.has-label) input::-moz-placeholder,:host([alwaysFloatLabel]) { /* Firefox 19+ */
     color: transparent;
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
 }
-.has-label input:-ms-input-placeholder,:host([alwaysFloatLabel]) { /* IE 10+ */
+:host(.has-label) input:-ms-input-placeholder,:host([alwaysFloatLabel]) { /* IE 10+ */
     color: transparent;
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
 }
-.has-label input:-moz-placeholder,:host([alwaysFloatLabel]) { /* Firefox 18- */
+:host(.has-label) input:-moz-placeholder,:host([alwaysFloatLabel]) { /* Firefox 18- */
     color: transparent;
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
 }

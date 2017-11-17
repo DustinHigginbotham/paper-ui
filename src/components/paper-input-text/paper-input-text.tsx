@@ -81,9 +81,15 @@ export class InputText {
         // this.el.dispatchEvent(new CustomEvent('input', { detail: val }))
     }
 
-    render() {
+    hostData() {
+        return {
+            class: {
+                'has-label': this.label,
+            }
+        }
+    }
 
-        let rootClasses = []
+    render() {
 
         let id = this.id
         if (!id) id = this.inputRandID
@@ -95,16 +101,13 @@ export class InputText {
 
         let label;
         if (this.label) {
-            rootClasses.push('has-label')
             label = (<label htmlFor={id}>{this.label}</label>)
         }
 
-        return (
-            <div class={rootClasses.join(' ')}>
-                <input {...inputAttributes} id={id} onInput={e => this.handleInternalValueUpdate(e)} />
-                <div />
-                {label}
-            </div>
-        );
+        return ([
+            <input {...inputAttributes} id={id} onInput={e => this.handleInternalValueUpdate(e)} />,
+            <div />,
+            label,
+        ]);
     }
 }

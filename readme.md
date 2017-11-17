@@ -26,6 +26,7 @@ This list isn't in any particular order, but it may be tempting to just follow t
 - [x] App Layout
 - [x] Sidebar
 - [x] Header
+- [ ] Pretty material ripples
 - [ ] Inputs
     - [x] Text Input
     - [ ] Texarea

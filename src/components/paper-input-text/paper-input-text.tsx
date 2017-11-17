@@ -23,22 +23,33 @@ const getRandID = () => {
     styleUrl: 'paper-input-text.scss',
     shadow: true,
 })
-export class PaperInputText {
+export class InputText {
 
     @Element() el: HTMLElement;
 
     @Event() input: EventEmitter;
 
+    /**
+     * Internal state
+     */
+    @State() showingHint: boolean = false;
+    @State() internalValue: string = '';
+    @State() inputRandID: string = '';
+
+    /**
+     * External props
+     */
     @Prop() type: string = 'text';
-    @Prop() value: string = '';
     @Prop() hint: string;
     @Prop() label: string;
     @Prop() id: string;
     @Prop() alwaysFloatLabel: boolean = false;
 
-    @State() showingHint: boolean = false;
-    @State() internalValue: string = '';
-    @State() inputRandID: string = '';
+    @Prop() value: string = '';
+    @PropDidChange('value')
+    handleUpdateValue(newVal: string) {
+        this.setFloatingAttr(newVal)
+    }
 
     // TODO: figure out a way to allow for a better getter
     @Method()
@@ -50,22 +61,17 @@ export class PaperInputText {
         this.inputRandID = getRandID()
     }
 
+    @Listen('input')
+    handleInput() {
+        this.setFloatingAttr(this.internalValue)
+    }
+
     setFloatingAttr(val: string) {
         if (val.length > 0) {
             this.el.setAttribute('floating', '')
         } else {
             this.el.removeAttribute('floating')
         }
-    }
-
-    @PropDidChange('value')
-    handleUpdateValue(newVal: string) {
-        this.setFloatingAttr(newVal)
-    }
-
-    @Listen('input')
-    handleInput() {
-        this.setFloatingAttr(this.internalValue)
     }
 
     handleInternalValueUpdate(e) {

@@ -5,7 +5,7 @@ import { Component } from '@stencil/core';
     styleUrl: 'paper-app-bar.scss',
     shadow: true,
 })
-export class PaperAppBar {
+export class AppBar {
 
     render() {
         return (

@@ -5,13 +5,13 @@ import { Component, Prop, Method, Element, State } from '@stencil/core';
     styleUrl: 'paper-drawer.scss',
     shadow: true,
 })
-export class PaperDrawer {
-
-    @Prop() opened: boolean = false;
-
-    @State() isOpen: boolean = this.opened;
+export class Drawer {
 
     @Element() el;
+
+    @State() isOpen: boolean;
+
+    @Prop() opened: boolean = false;
 
     @Method()
     toggle() {
@@ -20,12 +20,12 @@ export class PaperDrawer {
 
     @Method()
     open() {
-        // this.el.setAttribute('opened', '')
+        this.isOpen = true
     }
 
     @Method()
     close() {
-        // this.el.removeAttribute('opened')
+        this.isOpen = false
     }
 
     handleModalClick() {

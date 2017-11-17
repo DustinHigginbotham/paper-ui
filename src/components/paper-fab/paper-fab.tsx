@@ -5,7 +5,7 @@ import { Component } from '@stencil/core';
     styleUrl: 'paper-fab.scss',
     shadow: true,
 })
-export class PaperFab {
+export class FAB {
 
     render() {
         return (

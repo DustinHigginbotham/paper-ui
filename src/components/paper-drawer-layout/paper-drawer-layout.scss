@@ -3,71 +3,25 @@
     display: block;
 }
 
-// aside {
-//     position: absolute;
-//     left: 0;
-//     top: 0;
-//     bottom: 0;
-// }
-
 :host ::slotted(*) {
     margin-left: 0;
 }
+
 .main {
     margin-left: 256px;
 }
+
 :host([narrow]), :host([forceNarrow]) {
     & .main {
         margin-left: 0;
     }
 }
 
-
 :host > div {
-    // display: flex;
-    // align-items: stretch;
-    // justify-content: flex-start;
     height: 100%;
 }
 
-
-// div ::slotted([slot=drawer]) {
-    // position: absolute;
-    // left: 0;
-    // top: 0;
-    // bottom: 0;
-    // transition: 0.2s all cubic-bezier(0.4, 0.0, 0.6, 1);;
-    // transform: translateX(-100%);
-// }
-
 .main {
     transition: 0.2s all cubic-bezier(0.4, 0.0, 0.6, 1);
-    flex-grow: 1;
 }
 
-
-
-// @media (min-width: 600px) {
-
-//     // div ::slotted([slot=drawer]) {
-//     //     transform: translateX(0);
-//     // }
-
-//     :host ::slotted(*) {
-//         margin-left: 0;
-//     }
-//     .main {
-//         margin-left: 256px;
-//         // width: 100%;
-//     }
-
-//     :host ::slotted(paper-drawer) {
-//         transform: translateX(0);
-//     }
-
-// }
-
-
-// div ::slotted([slot=drawer]) {
-//     color: lime;
-// }

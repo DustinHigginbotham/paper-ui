@@ -5,14 +5,12 @@ import { Component } from '@stencil/core';
     styleUrl: 'paper-header-layout.scss',
     shadow: true,
 })
-export class PaperHeaderLayout {
+export class HeaderLayout {
 
     render() {
         return (
             <div>
-                {/* <div class="header-wrapper"> */}
-                    <slot name="header" />
-                {/* </div> */}
+                <slot name="header" />
 
                 <div class="main">
                     <slot />

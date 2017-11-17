@@ -5,11 +5,11 @@ import { Component, Element } from '@stencil/core';
     styleUrl: 'paper-drawer-layout.scss',
     shadow: true,
 })
-export class PaperDrawerLayout {
-
-    @Element() el;
+export class DrawerLayout {
 
     _mq: MediaQueryList;
+
+    @Element() el;
 
     componentDidLoad() {
         this._mq = window.matchMedia('(min-width: 600px)')

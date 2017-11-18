@@ -33,6 +33,37 @@ declare global {
   }
 }
 
+import { Avatar as PaperAvatar } from './components/paper-avatar/paper-avatar';
+
+interface HTMLPaperAvatarElement extends PaperAvatar, HTMLElement {
+}
+declare var HTMLPaperAvatarElement: {
+  prototype: HTMLPaperAvatarElement;
+  new (): HTMLPaperAvatarElement;
+};
+declare global {
+  interface HTMLElementTagNameMap {
+      "paper-avatar": HTMLPaperAvatarElement;
+  }
+  interface ElementTagNameMap {
+      "paper-avatar": HTMLPaperAvatarElement;
+  }
+  namespace JSX {
+      interface IntrinsicElements {
+          "paper-avatar": JSXElements.PaperAvatarAttributes;
+      }
+  }
+  namespace JSXElements {
+      export interface PaperAvatarAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
+        
+          name?: string,
+          src?: string
+      }
+  }
+}
+
 import { DrawerLayout as PaperDrawerLayout } from './components/paper-drawer-layout/paper-drawer-layout';
 
 interface HTMLPaperDrawerLayoutElement extends PaperDrawerLayout, HTMLElement {
@@ -214,6 +245,7 @@ declare global {
           mode?: string,
           color?: string,
         
+          twoLine?: boolean
       }
   }
 }

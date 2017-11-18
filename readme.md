@@ -40,7 +40,7 @@ This list isn't in any particular order, but it may be tempting to just follow t
 - [ ] Chips
 - [ ] Dialogs
 - [ ] Menus
-- [ ] Avatar
+- [x] Avatar
 - [ ] Progress indicators
 - [ ] Better elevation/material support.
 

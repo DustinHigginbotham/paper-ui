@@ -1,0 +1,15 @@
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--paper-avatar-background, #1E88E5);
+}
+
+img {
+    width: 42px;
+    height: 42px;
+}

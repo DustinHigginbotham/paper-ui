@@ -9,7 +9,7 @@ export class DrawerLayout {
 
     _mq: MediaQueryList;
 
-    @Element() el;
+    @Element() el: HTMLElement;
 
     componentDidLoad() {
         this._mq = window.matchMedia('(min-width: 600px)')
@@ -23,7 +23,7 @@ export class DrawerLayout {
 
     handleMediaQuery(mq) {
         if (mq.matches) {
-            this.el.removeAttribute('narrow', '')
+            this.el.removeAttribute('narrow')
         } else {
             this.el.setAttribute('narrow', '')
         }

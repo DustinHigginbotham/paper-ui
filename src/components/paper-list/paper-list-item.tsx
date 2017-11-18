@@ -1,4 +1,4 @@
-import { Component } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 
 
 @Component({
@@ -8,12 +8,21 @@ import { Component } from '@stencil/core';
 })
 export class ListItem {
 
+    @Prop() twoLine: boolean = false;
+
     render() {
 
         // TODO add action slots
         return (
             <div>
-                <slot />
+                <div class="content">
+                    <slot name="icon" />
+                    <slot name="avatar" />
+                    <div>
+                        <slot />
+                    </div>
+                </div>
+                <slot name="action" />
             </div>
         );
     }

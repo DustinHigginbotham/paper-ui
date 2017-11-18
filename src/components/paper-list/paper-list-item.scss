@@ -2,8 +2,42 @@
     display: block;
 }
 
+
+:host(:hover) {
+    background-color: rgba(0, 0, 0, 0.09);
+    cursor: pointer;
+}
+
 :host > div {
-    padding: 8px 16px;
+    padding: 0 16px;
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+:host([twoLine]) > div{
+    min-height: 72px;
+}
+
+:host > div > div {
+    display: flex;
+    align-items: center;
+}
+
+:host ::slotted([slot=icon]) {
+    padding-right: 32px;
+}
+
+:host ::slotted([slot=avatar]) {
+    padding-right: 14px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+:host ::slotted([slot=action]) {
+    padding-left: 8px;
 }
 
 :host ::slotted([secondary]) {

@@ -29,19 +29,6 @@
       font-weight: 300;
     }
 
-    .card {
-      background-color: white;
-      padding: 16px;
-      border-radius: 2px;
-      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
-
-      margin-bottom: 16px;
-    }
-
-    .card:last-of-type {
-      margin-bottom: 0;
-    }
-
     body {
       display: flex;
       min-height: 100vh;
@@ -49,16 +36,32 @@
       color: #222;
     }
 
+    a { text-decoration: none; color: #222; }
+
     .main-content {
       flex: 1;
     }
 
-    a { text-decoration: none; color: #222; }
+    .card {
+      background-color: white;
+
+      border-radius: 2px;
+      box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+
+      margin-bottom: 16px;
+    }
+
+    .card-padded {
+      padding: 16px;
+    }
+
+    .card:last-of-type {
+      margin-bottom: 0;
+    }
 
     paper-drawer {
       background-color: #fff;
     }
-
 
     paper-app-bar {
       background-color: #1E88E5;
@@ -80,8 +83,8 @@
       align-items: center;
     }
 
-    [main-title] .title {
-      margin-left: 16px;
+    [drawer-toggle] {
+      margin-right: 16px;
     }
 
     svg.icon {
@@ -92,6 +95,11 @@
     paper-app-bar a {
       color: white;
       font-size: 20px;
+    }
+
+    paper-avatar {
+      color: white;
+      --paper-avatar-background: #1E88E5;
     }
 
     paper-app-bar .icon {
@@ -115,12 +123,20 @@
       display: block;
     }
 
+    paper-drawer .icon {
+      fill: #222;
+    }
+
     main {
       padding: 16px;
     }
 
     paper-drawer-layout:not([narrow]) paper-drawer > div {
       padding-top: 60px;
+    }
+
+    paper-header-layout:not([narrow]) [drawer-toggle] {
+      display: none;
     }
 
   </style>
@@ -131,7 +147,7 @@
       <paper-app-bar slot="header">
 
         <div main-title>
-          <button class="menu-toggle">
+          <button class="menu-toggle" drawer-toggle>
             <svg class="icon">
               <use xlink:href="/assets/icons.svg#menu" />
             </svg>
@@ -152,19 +168,19 @@
 
               <a href="#">
                 <paper-list-item>
-                  Home
+                    Home
                 </paper-list-item>
               </a>
 
               <a href="#">
                 <paper-list-item>
-                  About Us
+                  Components
                 </paper-list-item>
               </a>
 
               <a href="#">
                 <paper-list-item>
-                  Contact Me
+                  Contact
                 </paper-list-item>
               </a>
 
@@ -174,13 +190,13 @@
 
         <main>
 
-          <div class="card">
+          <div class="card card-padded">
             <h1>Welcome to my starter kit</h1>
             <p>This is a super, stupidly simple version of the starter kit.</p>
             <p>Ideally, this would exist in a <code>&lt;my-app /&gt;</code> tag, but here we are.</p>
           </div>
 
-          <div class="card">
+          <div class="card card-padded">
             <h2>Forms</h2>
 
             <div>
@@ -200,8 +216,19 @@
 
           </div>
 
-          <div class="card">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
+          <div class="card card-padded">
+              <h2>Lists</h2>
+              <paper-list>
+                <paper-list-item twoLine>
+                  <div slot="avatar"><paper-avatar src="http://placecage.com/c/42/42" name="Jim Business" /></paper-list-item></div>
+                  Mr. Jim Business
+                  <div secondary>@mrjimbusiness</div>
+                </paper-list-item>
+                <paper-list-item>
+                    <div slot="avatar"><paper-avatar name="Bob Belcher" /></paper-list-item></div>
+                    Bob Belcher
+                  </paper-list-item>
+              </paper-list>
           </div>
 
           <paper-fab>
@@ -212,61 +239,6 @@
         </main>
       </paper-drawer-layout>
     </paper-header-layout>
-
-    <!-- <paper-header-layout>
-        <paper-app-bar slot="header">
-            <div main-title>
-              <button>
-                <svg class="icon">
-                  <use xlink:href="/assets/icons.svg#menu" />
-                </svg>
-              </button>
-              <a href="/" class="title">My App</a>
-            </div>
-        </paper-app-bar>
-        <paper-drawer-layout>
-            <paper-drawer slot="drawer">
-              <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Me</a></li>
-              </ul>
-            </paper-drawer>
-
-            <main>
-
-              <div class="card">
-                <h1>Welcome to my test</h1>
-                <p>This is a super, stupidly simple version of the starter kit.</p>
-                <p>Ideally, this would exist in a <code>&lt;my-app /&gt;</code> tag, but here we are.</p>
-              </div>
-
-              <div class="card">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed magna purus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec bibendum, tortor vel tincidunt tincidunt, libero odio dictum velit, ultricies congue lorem nisl a odio. In volutpat nec libero a pharetra. Mauris felis lorem, malesuada a pretium in, pulvinar nec nibh. Sed urna nibh, consequat eu molestie ut, vulputate sed odio. Quisque vitae ornare lectus, vitae tincidunt lectus. Vivamus commodo velit id ante imperdiet varius. Sed arcu justo, consectetur ut augue nec, gravida bibendum mi. Fusce posuere iaculis purus.</p>
-            </div>
-            </main>
-        </paper-drawer-layout>
-      </paper-header-layout> -->
-
 
   </div>
 
@@ -283,20 +255,9 @@
         console.log('last name value:', e.target.getValue())
       })
 
-      const layout = document.querySelector('paper-drawer-layout');
       const drawer = document.querySelector('paper-drawer');
-      document.querySelector('[main-title] button').addEventListener('click', () => {
-
-        const isForcedNarrow = layout.hasAttribute('forceNarrow')
-        if (isForcedNarrow || !layout.hasAttribute('narrow')) {
-          if (isForcedNarrow) {
-            layout.removeAttribute('forceNarrow')
-          } else {
-            layout.setAttribute('forceNarrow', '')
-          }
-        } else {
+      document.querySelector('[drawer-toggle]').addEventListener('click', () => {
           drawer.toggle()
-        }
       })
     })()
   </script>

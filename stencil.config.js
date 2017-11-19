@@ -11,6 +11,9 @@ exports.config = {
       'paper-input',
       'paper-fab',
       'paper-avatar',
+      'paper-list',
+      'paper-list-item',
+      'paper-icon',
     ] }
   ]
 };

@@ -86,19 +86,19 @@ input:-moz-placeholder { /* Firefox 18- */
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
-:host(.has-label) ::-webkit-input-placeholder,:host([alwaysFloatLabel]) ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+:host(.has-label) ::-webkit-input-placeholder,:host([always-float-label]) ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: transparent;
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
 }
-:host(.has-label) ::-moz-placeholder,:host([alwaysFloatLabel]) { /* Firefox 19+ */
+:host(.has-label) ::-moz-placeholder,:host([always-float-label]) { /* Firefox 19+ */
     color: transparent;
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
 }
-:host(.has-label) :-ms-input-placeholder,:host([alwaysFloatLabel]) { /* IE 10+ */
+:host(.has-label) :-ms-input-placeholder,:host([always-float-label]) { /* IE 10+ */
     color: transparent;
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
 }
-:host(.has-label) :-moz-placeholder,:host([alwaysFloatLabel]) { /* Firefox 18- */
+:host(.has-label) :-moz-placeholder,:host([always-float-label]) { /* Firefox 18- */
     color: transparent;
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
 }
@@ -121,7 +121,7 @@ label {
     top: 39px;
 }
 
-:host([floating]) label, input:focus ~ label, :host([alwaysFloatLabel]) label {
+:host([floating]) label, input:focus ~ label, :host([always-float-label]) label {
     transform: translateY(-24px) scale(0.8);
     color: var(--app-primary-color, #1E88E5);
 }
@@ -132,22 +132,22 @@ label {
 }
 
 // thank you, css-tricks
-:focus::-webkit-input-placeholder, :host([alwaysFloatLabel]) ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+:focus::-webkit-input-placeholder, :host([always-float-label]) ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: var(--app-text-color, #888);
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
-:focus::-moz-placeholder, :host([alwaysFloatLabel]) ::-webkit-input-placeholder { /* Firefox 19+ */
+:focus::-moz-placeholder, :host([always-float-label]) ::-webkit-input-placeholder { /* Firefox 19+ */
     color: var(--app-text-color, #888);
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
-:focus:-ms-input-placeholder, :host([alwaysFloatLabel]) ::-webkit-input-placeholder { /* IE 10+ */
+:focus:-ms-input-placeholder, :host([always-float-label]) ::-webkit-input-placeholder { /* IE 10+ */
     color: var(--app-text-color, #888);
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
-:focus:-moz-placeholder, :host([alwaysFloatLabel]) ::-webkit-input-placeholder { /* Firefox 18- */
+:focus:-moz-placeholder, :host([always-float-label]) ::-webkit-input-placeholder { /* Firefox 18- */
     color: var(--app-text-color, #888);
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
 }

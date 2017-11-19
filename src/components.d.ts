@@ -184,6 +184,36 @@ declare global {
   }
 }
 
+import { Icon as PaperIcon } from './components/paper-icon/paper-icon';
+
+interface HTMLPaperIconElement extends PaperIcon, HTMLElement {
+}
+declare var HTMLPaperIconElement: {
+  prototype: HTMLPaperIconElement;
+  new (): HTMLPaperIconElement;
+};
+declare global {
+  interface HTMLElementTagNameMap {
+      "paper-icon": HTMLPaperIconElement;
+  }
+  interface ElementTagNameMap {
+      "paper-icon": HTMLPaperIconElement;
+  }
+  namespace JSX {
+      interface IntrinsicElements {
+          "paper-icon": JSXElements.PaperIconAttributes;
+      }
+  }
+  namespace JSXElements {
+      export interface PaperIconAttributes extends HTMLAttributes {
+          mode?: string,
+          color?: string,
+        
+          icon?: string
+      }
+  }
+}
+
 import { InputText as PaperInput } from './components/paper-input/paper-input';
 
 interface HTMLPaperInputElement extends PaperInput, HTMLElement {

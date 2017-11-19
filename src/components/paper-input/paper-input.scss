@@ -35,7 +35,7 @@ textarea, textarea + div {
     font-family: sans-serif;
     font-size: 16px;
     box-sizing: border-box;
-    padding: 4px 0;
+    padding: 8px 0;
 
     overflow: hidden;
     width: 100%;
@@ -118,7 +118,7 @@ label {
 
 :host([multi-line]) label {
     bottom: auto;
-    top: 33px;
+    top: 39px;
 }
 
 :host([floating]) label, input:focus ~ label, :host([alwaysFloatLabel]) label {

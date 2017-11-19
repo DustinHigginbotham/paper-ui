@@ -28,6 +28,7 @@ This list isn't in any particular order, but it may be tempting to just follow t
 - [x] Header
 - [ ] Inputs
     - [x] Text Input
+    - [x] Multi-line input
     - [ ] Textarea
     - [ ] Toggles
 - [ ] Buttons

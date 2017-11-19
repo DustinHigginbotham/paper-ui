@@ -2,7 +2,6 @@
     display: block;
 }
 
-
 :host(:hover) {
     background-color: rgba(0, 0, 0, 0.09);
     cursor: pointer;
@@ -16,7 +15,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
 
 :host([twoLine]) > div{
     min-height: 72px;

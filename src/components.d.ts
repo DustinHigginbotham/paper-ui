@@ -184,28 +184,28 @@ declare global {
   }
 }
 
-import { InputText as PaperInputText } from './components/paper-input-text/paper-input-text';
+import { InputText as PaperInput } from './components/paper-input/paper-input';
 
-interface HTMLPaperInputTextElement extends PaperInputText, HTMLElement {
+interface HTMLPaperInputElement extends PaperInput, HTMLElement {
 }
-declare var HTMLPaperInputTextElement: {
-  prototype: HTMLPaperInputTextElement;
-  new (): HTMLPaperInputTextElement;
+declare var HTMLPaperInputElement: {
+  prototype: HTMLPaperInputElement;
+  new (): HTMLPaperInputElement;
 };
 declare global {
   interface HTMLElementTagNameMap {
-      "paper-input-text": HTMLPaperInputTextElement;
+      "paper-input": HTMLPaperInputElement;
   }
   interface ElementTagNameMap {
-      "paper-input-text": HTMLPaperInputTextElement;
+      "paper-input": HTMLPaperInputElement;
   }
   namespace JSX {
       interface IntrinsicElements {
-          "paper-input-text": JSXElements.PaperInputTextAttributes;
+          "paper-input": JSXElements.PaperInputAttributes;
       }
   }
   namespace JSXElements {
-      export interface PaperInputTextAttributes extends HTMLAttributes {
+      export interface PaperInputAttributes extends HTMLAttributes {
           mode?: string,
           color?: string,
         
@@ -214,6 +214,7 @@ declare global {
           hint?: string,
           label?: string,
           id?: string,
+          multiLine?: boolean,
           alwaysFloatLabel?: boolean,
           value?: string
       }

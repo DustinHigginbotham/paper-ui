@@ -6,7 +6,6 @@ import {
     PropDidChange,
     Event,
     EventEmitter,
-    Listen,
     Method,
 } from '@stencil/core';
 
@@ -19,8 +18,8 @@ const getRandID = () => {
 }
 
 @Component({
-    tag: 'paper-input-text',
-    styleUrl: 'paper-input-text.scss',
+    tag: 'paper-input',
+    styleUrl: 'paper-input.scss',
     shadow: true,
 })
 export class InputText {
@@ -34,7 +33,9 @@ export class InputText {
      */
     @State() showingHint: boolean = false;
     @State() internalValue: string = '';
+    @State() textareaSizingValue: string = '';
     @State() inputRandID: string = '';
+    @State() focused: boolean = false;
 
     /**
      * External props
@@ -43,7 +44,8 @@ export class InputText {
     @Prop() hint: string;
     @Prop() label: string;
     @Prop() id: string;
-    @Prop() alwaysFloatLabel: boolean = false;
+    @Prop() multiLine: boolean;
+    @Prop() alwaysFloatLabel: boolean;
 
     @Prop() value: string = '';
     @PropDidChange('value')
@@ -61,9 +63,18 @@ export class InputText {
         this.inputRandID = getRandID()
     }
 
-    @Listen('input')
-    handleInput() {
+    componentDidLoad() {
+        this.autoSize();
+    }
+
+    handleChange(e) {
         this.setFloatingAttr(this.internalValue)
+    }
+
+    autoSize() {
+        if (this.multiLine) {
+            this.textareaSizingValue = this.internalValue + '\n';
+        }
     }
 
     setFloatingAttr(val: string) {
@@ -77,12 +88,34 @@ export class InputText {
     handleInternalValueUpdate(e) {
         const val = e.target.value;
         this.internalValue = val;
-        // this.input.emit(val)
-        // this.el.dispatchEvent(new CustomEvent('input', { detail: val }))
+
+        if (this.multiLine) {
+            this.textareaSizingValue = val + "\n";
+        }
+
+    }
+
+    handleFocused(e) {
+        this.focused = true
+        if (this.multiLine) {
+            this.el.setAttribute('floating', '')
+            this.el.setAttribute('has-focus', '')
+        }
+    }
+
+    handleBlurred(e) {
+        this.focused = false
+        if (this.multiLine) {
+            this.el.removeAttribute('has-focus')
+            if (this.internalValue.length === 0) {
+                this.el.removeAttribute('floating')
+            }
+        }
     }
 
     hostData() {
         return {
+            // floating: this.multiLine && this.focused, // This doesn't work?
             class: {
                 'has-label': this.label,
             }
@@ -101,11 +134,33 @@ export class InputText {
 
         let label;
         if (this.label) {
-            label = (<label htmlFor={id}>{this.label}</label>)
+            label = (<label onClick={e => this.handleLabelClick(e)} htmlFor={id}>{this.label}</label>)
+        }
+
+        if (this.multiLine) {
+            return ([
+                <div class="textarea-container">
+                <textarea
+                    {...inputAttributes}
+                    id={id}
+                    rows="1"
+                    onFocus={e => this.handleFocused(e)}
+                    onBlur={e => this.handleBlurred(e)}
+                    onChange={e => this.handleChange(e)}
+                    onInput={e => this.handleInternalValueUpdate(e)} />
+                    <div>{this.textareaSizingValue}</div>
+                </div>,
+                <div class="indicator" />,
+                label,
+            ]);
         }
 
         return ([
-            <input {...inputAttributes} id={id} onInput={e => this.handleInternalValueUpdate(e)} />,
+            <input
+                {...inputAttributes}
+                id={id}
+                onChange={e => this.handleChange(e)}
+                onInput={e => this.handleInternalValueUpdate(e)} />,
             <div />,
             label,
         ]);

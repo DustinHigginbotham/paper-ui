@@ -200,34 +200,50 @@
             <h2>Forms</h2>
 
             <div>
-              <paper-input-text id="firstName" label="First Name" hint="Your first name is probably John." />
+              <paper-input id="firstName" label="First Name" hint="Your first name is probably John." />
             </div>
             <div>
-                <paper-input-text id="lastName" label="Last Name" hint="Your first name is probably Smith." />
+                <paper-input id="lastName" label="Last Name" hint="Your first name is probably Smith." />
             </div>
 
             <div>
-                <paper-input-text id="assumptions" hint="Were my assumptions pretty correct?" />
+                <paper-input id="assumptions" hint="Were my assumptions pretty correct?" />
             </div>
 
             <div>
-                <paper-input-text alwaysFloatLabel id="floatingTest" label="I'm Stuck" hint="The label above me is always floating, right?" />
+                <paper-input type="password" label="Password" hint="Must be alphanumeric, plus all symbols, plus any casing." />
             </div>
 
+
+            <div>
+                <paper-input alwaysFloatLabel id="floatingTest" label="I'm Stuck" hint="The label above me is always floating, right?" />
+            </div>
+
+            <div>
+              <paper-input multi-line label="Multiline" hint="Multiple lines you say?" />
+            </div>
+
+            <div>
+                <paper-input multi-line alwaysFloatLabel label="Multiline w/ Fixed Label" hint="Multiple lines AND a fixed label you say?" />
+              </div>
           </div>
 
           <div class="card card-padded">
               <h2>Lists</h2>
               <paper-list>
                 <paper-list-item twoLine>
-                  <div slot="avatar"><paper-avatar src="http://placecage.com/c/42/42" name="Jim Business" /></paper-list-item></div>
+                  <div slot="avatar">
+                    <paper-avatar src="http://placecage.com/c/42/42" name="Jim Business" />
+                  </div>
                   Mr. Jim Business
                   <div secondary>@mrjimbusiness</div>
                 </paper-list-item>
-                <paper-list-item>
-                    <div slot="avatar"><paper-avatar name="Bob Belcher" /></paper-list-item></div>
-                    Bob Belcher
-                  </paper-list-item>
+              <paper-list-item>
+                  <div slot="avatar">
+                    <paper-avatar name="Bob Belcher" />
+                  </div>
+                  Bob Belcher
+                </paper-list-item>
               </paper-list>
           </div>
 

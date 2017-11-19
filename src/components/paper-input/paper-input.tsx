@@ -134,7 +134,7 @@ export class InputText {
 
         let label;
         if (this.label) {
-            label = (<label onClick={e => this.handleLabelClick(e)} htmlFor={id}>{this.label}</label>)
+            label = (<label htmlFor={id}>{this.label}</label>)
         }
 
         if (this.multiLine) {

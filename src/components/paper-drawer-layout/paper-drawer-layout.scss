@@ -1,6 +1,8 @@
 :host {
     all: inherit;
     display: block;
+    --paper-layout-aside-translate: translateX(0);
+    --paper-layout-aside-zindex: auto;
 }
 
 :host ::slotted(*) {
@@ -12,7 +14,10 @@
 }
 
 :host([narrow]), :host([forceNarrow]) {
-    & .main {
+    --paper-layout-aside-zindex: 101;
+    --paper-layout-aside-translate: translateX(-100%);
+
+    .main {
         margin-left: 0;
     }
 }

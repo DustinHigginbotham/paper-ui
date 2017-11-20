@@ -16,15 +16,15 @@ aside {
     width: 256px;
     transition: 0.2s all cubic-bezier(0.4, 0.0, 0.6, 1);
 
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    transform: var(--paper-layout-aside-translate);
+    z-index: var(--paper-layout-aside-zindex, 1);
 }
 
 :host-context([narrow]) aside,
 :host-context([forceNarrow]) aside {
     -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-    z-index: 101;
+    transform: var(--paper-layout-aside-translate);
+    z-index: var(--paper-layout-aside-zindex);
 }
 
 .opened aside {

@@ -24,8 +24,10 @@ export class DrawerLayout {
     handleMediaQuery(mq) {
         if (mq.matches) {
             this.el.removeAttribute('narrow')
+            this.el.classList.remove('narrow')
         } else {
             this.el.setAttribute('narrow', '')
+            this.el.classList.add('narrow')
         }
     }
 

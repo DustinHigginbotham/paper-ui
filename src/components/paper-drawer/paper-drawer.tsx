@@ -34,7 +34,7 @@ export class Drawer {
 
     render() {
 
-        let classes = []
+        let classes = ['drawer-root']
         if (this.isOpen || this.opened) classes.push('opened')
 
         return (

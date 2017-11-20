@@ -3,7 +3,7 @@
     display: block;
 }
 
-:host > div {
+.drawer-root {
     all: inherit;
 }
 
@@ -16,6 +16,19 @@ aside {
     width: 256px;
     transition: 0.2s all cubic-bezier(0.4, 0.0, 0.6, 1);
 
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+:host-context([narrow]) aside,
+:host-context([forceNarrow]) aside {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    z-index: 101;
+}
+
+.opened aside {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
 }
 
@@ -30,15 +43,6 @@ aside {
     z-index: 100;
     visibility: hidden;
     transition: 0.2s all cubic-bezier(0.0, 0.0, 0.2, 1);
-}
-
-:host-context([narrow]) aside, :host-context([forceNarrow]) aside {
-    transform: translateX(-100%);
-}
-
-.opened aside {
-    z-index: 101;
-    transform: translateX(0);
 }
 
 .opened .overlay {
